@@ -5,8 +5,8 @@ import trainerImage from "../assets/3rd4th.png";
 
 function ProductCard({ image, tag, name }) {
     return (
-        <article className="w-[200px] shrink-0 sm:w-[200px]">
-            <div className="flex h-[250px] items-center justify-center border border-[#dfe3e5] bg-[#f6f7f7] p-6 sm:h-[250px]"><img className="h-full w-full object-contain" src={image} alt={name} /></div>
+        <article className="w-[min(72vw,260px)] shrink-0 sm:w-[200px]">
+            <div className="flex aspect-square items-center justify-center border border-[#dfe3e5] bg-[#f6f7f7] p-5 sm:aspect-auto sm:h-[250px] sm:p-6"><img className="h-full w-full object-contain" src={image} alt={name} /></div>
             <p className="m-0 border-b border-[#dfe3e5] pb-2 pt-4 text-[7px] font-semibold uppercase tracking-[1.5px] text-[#087dc5]">{tag}</p>
             <div className="relative flex items-center justify-between"><h3 className="m-0 pt-3 text-[10px] font-medium">{name}</h3><b className="mt-2 grid h-5 w-5 place-items-center rounded-full bg-[#ffd000] text-[11px]">→</b></div>
         </article>
@@ -24,13 +24,15 @@ export default function () {
                     <h2 className="m-0 font-sans text-[36px] font-semibold uppercase leading-[.92] tracking-[-1px] sm:text-[39px]">Introducing the<br />Performance Series</h2>
                     <div><p className="m-0 max-w-[260px] text-[9px] leading-[1.55] text-[#697177]">A refined selectorized platform built on ROC-IT® ride motion — engineered for the way the body moves, finished for the spaces it lives in.</p><a className="mt-4 inline-flex items-center gap-4 rounded-full bg-[#087dc5] px-4 py-2 text-[7px] font-semibold uppercase tracking-[.8px] text-white no-underline" href="#products">Shop the series <b className="grid h-4 w-4 place-items-center rounded-full bg-[#ffd000] text-[#111]">→</b></a></div>
                 </div>
-                <div className="flex items-center gap-2 py-5"><button className="rounded-full border border-[#dfe3e5] bg-white px-4 py-2 text-[7px] font-semibold uppercase tracking-[.8px]">New arrivals <b className="ml-3 inline-grid h-4 w-4 place-items-center rounded-full bg-[#ffd000]">→</b></button><button className="rounded-full border border-[#dfe3e5] bg-white px-4 py-2 text-[7px] font-semibold uppercase tracking-[.8px]">Best sellers <b className="ml-3 inline-grid h-4 w-4 place-items-center rounded-full bg-[#ffd000]">→</b></button><span className="ml-auto text-[7px] uppercase tracking-[1.5px] text-[#6c7479]">Scroll →</span></div>
+                <div className="flex flex-wrap items-center gap-2 py-5"><button className="rounded-full border border-[#dfe3e5] bg-white px-4 py-2 text-[7px] font-semibold uppercase tracking-[.8px]">New arrivals <b className="ml-3 inline-grid h-4 w-4 place-items-center rounded-full bg-[#ffd000]">→</b></button><button className="rounded-full border border-[#dfe3e5] bg-white px-4 py-2 text-[7px] font-semibold uppercase tracking-[.8px]">Best sellers <b className="ml-3 inline-grid h-4 w-4 place-items-center rounded-full bg-[#ffd000]">→</b></button><span className="ml-auto text-[7px] uppercase tracking-[1.5px] text-[#6c7479]">Scroll →</span></div>
             </div>
-            <div className="flex w-max gap-4 pl-6 sm:pl-[calc((100%-760px)/2)]">
-                <ProductCard image={rackImage} tag="Motion Cage" name="Half Rack System" />
-                <ProductCard image={cageImage} tag="Motion Cage" name="MC-7000 Training Cage" />
-                <ProductCard image={smithImage} tag="Mi Series" name="Mi7 Smith / Functional" />
-                <ProductCard image={trainerImage} tag="Fitness Series" name="Dual Functional Trainer" />
+            <div className="w-full overflow-x-auto pb-2">
+                <div className="flex w-max gap-4 pl-6 sm:pl-[max(24px,calc((100%-760px)/2))] sm:pr-6">
+                    <ProductCard image={rackImage} tag="Motion Cage" name="Half Rack System" />
+                    <ProductCard image={cageImage} tag="Motion Cage" name="MC-7000 Training Cage" />
+                    <ProductCard image={smithImage} tag="Mi Series" name="Mi7 Smith / Functional" />
+                    <ProductCard image={trainerImage} tag="Fitness Series" name="Dual Functional Trainer" />
+                </div>
             </div>
         </div>
     )
