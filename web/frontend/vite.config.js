@@ -10,14 +10,14 @@ if (
 ) {
   throw new Error(
     "\n\nThe frontend build will not work without an API key. Set the SHOPIFY_API_KEY environment variable when running the build command, for example:" +
-      "\n\nSHOPIFY_API_KEY=<your-api-key> npm run build\n"
+    "\n\nSHOPIFY_API_KEY=<your-api-key> npm run build\n"
   );
 }
 
 process.env.VITE_SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
 
 const proxyOptions = {
-  target: `http://127.0.0.1:${process.env.BACKEND_PORT}`,
+  target: `http://127.0.0.1:${process.env.BACKEND_PORT || "3000"}`,
   changeOrigin: false,
   secure: true,
   ws: false,
@@ -52,7 +52,7 @@ export default defineConfig({
   },
   server: {
     host: "localhost",
-    port: process.env.FRONTEND_PORT,
+    port: process.env.FRONTEND_PORT || 5173,
     hmr: hmrConfig,
     proxy: {
       "^/(\\?.*)?$": proxyOptions,
